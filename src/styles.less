@@ -1,0 +1,218 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
+// For tooltip
+.ng-tooltip {
+    pointer-events: none;
+    position      : absolute;
+    max-width     : 300px;
+    font-size     : 12px;
+    text-align    : left;
+    color         : #FFFFFF;
+    padding       : 8px 12px;
+    background    : #000000;
+    border-radius : 2px;
+    z-index       : -222;
+    top           : 0;
+    opacity       : 0;
+    white-space   : break-spaces;
+
+    &:empty {
+        display: none !important;
+    }
+
+    &.white {
+        box-shadow: 0 2px 8px 0 rgba(28, 91, 209, 0.35);
+        color     : #747576;
+        background: #FFFFFF;
+        text-align: left;
+    }
+
+    &.animate {
+        &-top {
+            -webkit-animation: animate-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation        : animate-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        &-right {
+            -webkit-animation: animate-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation        : animate-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        &-bottom {
+            -webkit-animation: animate-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation        : animate-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        &-left {
+            -webkit-animation: animate-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation        : animate-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+    }
+
+    &-top {
+        &:after {
+            top         : 100%;
+            left        : 50%;
+            margin-left : -5px;
+            border-width: 5px;
+            border-color: #000000 transparent transparent transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: #F1F1F1 transparent transparent transparent;
+            }
+        }
+    }
+
+    &-bottom {
+        &:after {
+            bottom      : 100%;
+            left        : 50%;
+            margin-left : -5px;
+            border-width: 5px;
+            border-color: transparent transparent #000000 transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: transparent transparent #F1F1F1 transparent;
+            }
+        }
+    }
+
+    &-left {
+        &.white {
+            &:after {
+                border-color: transparent transparent transparent #F1F1F1;
+            }
+        }
+
+        &:after {
+            top         : 50%;
+            left        : 100%;
+            margin-top  : -5px;
+            border-width: 5px;
+            border-color: transparent transparent transparent #000000;
+
+            @-moz-document url-prefix() {
+                top         : calc(50% - 10px);
+                left        : calc(100% + 9px);
+                margin-top  : -5px;
+                border-width: 5px;
+                border-color: transparent transparent #000000 transparent;
+                transform   : rotate(90deg);
+            }
+        }
+    }
+
+    &-right {
+        &.white {
+            &:after {
+                border-color: transparent #F1F1F1 transparent transparent;
+            }
+        }
+
+        &:after {
+            top         : 50%;
+            right       : 100%;
+            margin-top  : -5px;
+            border-width: 5px;
+            border-color: transparent #000000 transparent transparent;
+
+            @-moz-document url-prefix() {
+                top         : calc(50% - 10px);
+                right       : calc(100% + 9px);
+                margin-top  : -5px;
+                border-width: 5px;
+                border-color: transparent transparent #000000 transparent;
+                transform   : rotate(-90deg);
+            }
+        }
+    }
+
+    &-bottom-right {
+        &:after {
+            bottom      : 100%;
+            left        : 100%;
+            margin-left : -20px;
+            border-width: 5px;
+            border-color: transparent transparent #000000 transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: transparent transparent #F1F1F1 transparent;
+            }
+        }
+    }
+
+    &-bottom-left {
+        &:after {
+            bottom      : 100%;
+            left        : 0px;
+            margin-left : 10px;
+            border-width: 5px;
+            border-color: transparent transparent #000000 transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: transparent transparent #F1F1F1 transparent;
+            }
+        }
+    }
+
+    &-top-left {
+        &:after {
+            top         : 100%;
+            left        : 0;
+            margin-left : 10px;
+            border-width: 5px;
+            border-color: #000000 transparent transparent transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: #F1F1F1 transparent transparent transparent;
+            }
+        }
+    }
+
+    &-top-right {
+        &:after {
+            top         : 100%;
+            left        : 100%;
+            margin-left : -5px;
+            border-width: 5px;
+            border-color: #000000 transparent transparent transparent;
+        }
+
+        &.white {
+            &:after {
+                border-color: #F1F1F1 transparent transparent transparent;
+            }
+        }
+    }
+
+    &:after {
+        content     : "";
+        position    : absolute;
+        border-style: solid;
+    }
+
+    span.within {
+        font-size: 80%;
+        display  : block;
+        width    : 100%;
+    }
+}
+
+.ng-tooltip-show {
+    pointer-events: none;
+    opacity       : 1;
+    z-index       : 2147483001;
+}

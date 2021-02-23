@@ -1,0 +1,27 @@
+<!-- <router-outlet></router-outlet> -->
+
+<br>
+<!-- {{modelvalue}} -->
+<!-- <lib-minieditor [(ngModel)]="modelvalue" [value]="defValue" [file]="true" [mentionedNames]="[1,1,1,1,1,1]" [mentionedDates]="[1,1,1,1,1,1,1]" [buttonName]="'Hi Alec'"></lib-minieditor> -->
+<br>
+<br><br>
+
+<div *ngFor="let fileObj of filesFromChild">
+    {{fileObj.file.name}} - {{fileObj.extension}}
+</div>
+
+<app-editor-container [(ngModel)]="modelvalue1" [editorConfig]="editorConfig1"  (sendSavedFiles)="filesSaved($event)" (comment)="comment($event)"></app-editor-container>
+<br><br>
+{{modelvalue1}}
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<!-- <app-editor-container [(ngModel)]="modelvalue2" [editorConfig]="editorConfig2"  (sendSavedFiles)="filesSaved($event)" (comment)="comment($event)"></app-editor-container> -->
+<br><br>
+<!-- {{modelvalue2}} -->
+<br><br>
+
+
+
+

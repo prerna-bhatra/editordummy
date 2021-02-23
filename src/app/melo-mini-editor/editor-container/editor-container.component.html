@@ -1,0 +1,36 @@
+<!-- <p>editor-container works!</p> -->
+<div class="editor-container" (blur)="blur()">
+    <div class="editable-block" contenteditable="true"
+        [class.bottom]="!editorConfig?.toolbarPlacement || editorConfig?.toolbarPlacement === 'bottom'"
+        [class.top]="editorConfig?.toolbarPlacement === 'top'" [id]="id" (input)="setValue($event.target.innerText)"
+        (paste)="onPaste($event)" [mentionConfig]="mentionConfig" (closed)="mentionClosed()"
+        [attr.placeholder]="placeholder">
+    </div>
+    <div class="editor-tools"
+        [class.bottom]="!editorConfig?.toolbarPlacement || editorConfig?.toolbarPlacement === 'bottom'"
+        [class.top]="editorConfig?.toolbarPlacement === 'top'">
+        <app-editor-menu (linkInEditor)="saveLink($event)" (imageInEditor)="saveImage($event)"
+            (sendSavedFiles)="saveFiles($event)" (buttonClick)="toolbarClicked($event)" [toolbarConfig]="toolbarConfig"
+            [editorConfig]="editorConfig"></app-editor-menu>
+    </div>
+</div>
+
+<div id="resizerDiv" class="resize-pointer" contenteditable="false">
+    
+    <div class="resize-pointer left active" draggable="true" id="left">
+    </div>
+    <div class="resize-pointer right " draggable="true" id="right">
+    </div>
+    <div class="resize-pointer top" draggable="true" id="top">
+    </div>
+    <div class="resize-pointer bottom" draggable="true" id="bottom">
+    </div>
+    <div class="resize-pointer top-left " draggable="true" id="top-left">
+    </div>
+    <div class="resize-pointer top-right " draggable="true" id="top-right">
+    </div>
+    <div class="resize-pointer bottom-left" draggable="true" id="bottom-left">
+    </div>
+    <div class="resize-pointer bottom-right" draggable="true" id="bottom-right" >
+    </div>
+ </div>
